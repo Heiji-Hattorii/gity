@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure tactique</title>
+    <style>
+        body {
+            /* margin: 0;
+            padding: 0;
+            height: 100vh;
+            width:100%;
+            box-sizing: border-box; */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 100%;
+            gap: 2%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            background-color: rgb(196, 208, 197);
+            padding: 20px;
+            border-radius: 10px;
+            justify-self: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .fm {
+            padding: 5px;
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+
+        button {
+            margin: 15px;
+        }
+
+        label {
+            justify-self: flex-end;
+            padding: 10px;
+        }
+
+        input {
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
+
+        select {
+            border-radius: 10px;
+        }
+
+        fieldset {
+            border: 2px solid rgb(15, 121, 9);
+            border-radius: 10px;
+        }
+
+        .terrain {
+            position: relative;
+            width: 100%;
+        }
+
+        .terrain img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .joueur {
+            background-color: rgb(136, 220, 68);
+            width: 55px;
+            position: absolute;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid rgb(189, 215, 41);
+            border-radius: 45% 45% 0 0
+        }
+
+        .joueur:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .joueur img {
+            border-radius: 55%;
+        }
+
+        span {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            font-size: large;
+            font-weight: 600;
+            color: rgb(31, 58, 4);
+            background-color: rgb(231, 231, 7);
+            width: 25px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        h5 {
+            display: inline;
+        }
+
+        .coco {
+            display: flex;
+        }
+
+        .changement {
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            height: 90%;
+            overflow-y: scroll;
+
+        }
+
+        .player {
+            justify-content: center;
+            border-radius: 10px;
+            background-color: darkolivegreen;
+        }
+
+        .player span {
+            position: static;
+        }
+
+        @media (min-width: 700px) {
+            body {
+                grid-template-columns: 40% 15% 45%;
+                flex-direction: row;
+                gap: 0;
+                background-image: url(img/Fond\ de\ terrain\ de\ football\ de\ style\ dégradé\ _\ Vecteur\ Gratuite.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .container {
+                align-self: center;
+            }
+
+            .terrain {
+
+                align-self: center;
+                justify-self: center;
+                width: 85%;
+            }
+
+
+            .terrain img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            }
+
+        }
+
+        @media (min-width: 100px) and (max-width:600px) {
+            .joueur {
+                width: 45px;
+            }
+
+            h5 {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="terrain">
+        <img src="img/e1f3f3da-4d68-4adf-af01-ba9c6c7e.jpg" class="photo" alt="">
+        <div class="coco">
+            <div class="gk joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="cb1 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="cb2 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="rb joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="lb joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="cm1 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="cm2 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="qm1 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="qm2 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="qm3 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="lw joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="rw joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="st joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="st1 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+            <div class="st2 joueur">
+                <img src="img/inconnu.jfif" alt="">
+            </div>
+        </div>
+
+    </div>
+    <div class="changement"></div>
+    <div class="container">
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Ajouter un joueur:</legend>
+                    <div class="fm">
+                        <label style="margin-top: 15px;">Nom :</label>
+                        <input id="nom" type="text" placeholder="Nom" style="margin-top: 15px;" required>
+                    </div>
+                    <div class="fm">
+                        <label>Prenom :</label>
+                        <input type="text" placeholder="Prenom" id="prenom" required>
+                    </div>
+
+                    <div class="fm">
+                        <label>Photo :</label>
+                        <input type="url" name="photo" id="photo" placeholder="https://example.com" required />
+                    </div>
+
+                    <div class="fm">
+                        <label>Note :</label>
+                        <input type="number" placeholder="Note" id="note" required>
+                    </div>
+                    <div class="fm">
+                        <label>Âge :</label>
+                        <input type="number" placeholder="Âge" id="age" min="1" required>
+                    </div>
+                    <div class="fm">
+                        <label>Nationalité:</label>
+                        <input type="text" placeholder="Nationalité" id="nationalite" required>
+                    </div>
+                    <div class="fm">
+                        <label>Formation :</label>
+                        <select id="formation">
+                            <option value="433">4-3-3</option>
+                            <option value="442">4-4-2</option>
+                        </select>
+                    </div>
+
+                    <div class="fm">
+                        <label>Position :</label>
+                        <select id="position" name="position" required>
+
+                        </select>
+                    </div>
+                    <button id="ajouter">Ajouter</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let nom = document.getElementById("nom");
+            let prenom = document.getElementById("prenom");
+            let photo = document.getElementById("photo");
+            let note = document.getElementById("note");
+            let age = document.getElementById("age");
+            let nationalite = document.getElementById("nationalite");
+            let formation = document.getElementById("formation");
+            let position = document.getElementById("position");
+            let btn = document.getElementById("ajouter");
+            let option = document.option;
+
+
+            const tactique = {
+                "433": [
+                    { pos: "GK", bottom: "3%", left: "44%" },
+                    { pos: "CB1", bottom: "15%", left: "25%" },
+                    { pos: "CB2", bottom: "15%", right: "25%" },
+                    { pos: "LB", bottom: "28%", left: "10%" },
+                    { pos: "RB", bottom: "28%", right: "10%" },
+                    { pos: "QM1", bottom: "38%", left: "44%" },
+                    { pos: "QM2", bottom: "54%", left: "33%" },
+                    { pos: "QM3", bottom: "54%", right: "33%" },
+                    { pos: "LW", bottom: "72%", left: "18%" },
+                    { pos: "RW", bottom: "72%", right: "18%" },
+                    { pos: "ST", bottom: "85%", left: "44%" }
+                ],
+                "442": [
+                    { pos: "GK", bottom: "3%", left: "44%" },
+                    { pos: "CB1", bottom: "15%", left: "25%" },
+                    { pos: "CB2", bottom: "15%", right: "25%" },
+                    { pos: "LB", bottom: "28%", left: "10%" },
+                    { pos: "RB", bottom: "28%", right: "10%" },
+                    { pos: "CM1", bottom: "45%", left: "30%" },
+                    { pos: "CM2", bottom: "45%", right: "30%" },
+                    { pos: "LW", bottom: "60%", left: "20%" },
+                    { pos: "RW", bottom: "60%", right: "20%" },
+                    { pos: "ST1", bottom: "80%", left: "35%" },
+                    { pos: "ST2", bottom: "80%", right: "35%" }
+                ]
+            };
+
+            function updatePositions(selectedFormation) {
+                document.querySelectorAll(".joueur").forEach(joueur => {
+                    joueur.style.display = "none";
+                });
+
+                tactique[selectedFormation].forEach(player => {
+                    const playerElement = document.querySelector(`.${player.pos.toLowerCase()}`);
+                    if (playerElement) {
+                        playerElement.style.display = "block";
+                        playerElement.style.position = "absolute";
+                        playerElement.style.bottom = player.bottom;
+                        playerElement.style.left = player.left || "unset";
+                        playerElement.style.right = player.right || "unset";
+                    }
+                });
+            }
+
+            //options selon les choix 
+            function populatePositions(selectedFormation) {
+                position.innerHTML = "";
+                tactique[selectedFormation].forEach(player => {
+                    const opt = document.createElement("option");
+                    opt.value = player.pos;
+                    opt.textContent = player.pos;
+                    position.appendChild(opt);
+                });
+            }
+
+            function modifierJoueur(joueur) {
+
+                nom.value = joueur.nom;
+                prenom.value = joueur.prenom;
+                photo.value = joueur.photo;
+                note.value = joueur.note;
+                age.value = joueur.age;
+                nationalite.value = joueur.nationalite;
+                formation.value = joueur.formation;
+                position.value = joueur.position;
+                btn.textContent = "Modifier";
+
+            }
+            function indice(joueur) {
+                let players = JSON.parse(localStorage.getItem("players")) || [];
+                let k;
+                for (let i = 0; i < players.length; i++) {
+                    if (players[i].nom === joueur.nom && players[i].prenom === joueur.prenom) {
+                        k = i;
+                        console.log(k);
+                        return k;
+                    }
+                }
+                console.log("Aucun joueur correspondant trouvé.");
+                return -1;
+
+            }
+
+            function supprimerJoueur(joueur, position) {
+                let players = JSON.parse(localStorage.getItem("players")) || [];
+                players = players.filter(j => j.nom !== joueur.nom || j.prenom !== joueur.prenom);
+                localStorage.setItem("players", JSON.stringify(players));
+                let changements = JSON.parse(localStorage.getItem("changement")) || [];
+                changements.push(joueur);
+                localStorage.setItem("changement", JSON.stringify(changements));
+                alert(`${joueur.nom} ${joueur.prenom} a été supprimé.`);
+
+            }
+            function changement() {
+                const changes = JSON.parse(localStorage.getItem("changement")) || [];
+                let divchanger = document.querySelector(".changement");
+
+                changes.forEach(change => {
+                    let changi = document.createElement("div");
+                    changi.innerHTML = `
+                    <div class=player >
+                        <img src="${change.photo}" style="width:60px;">
+                    <span>${change.note}</span>
+                    <h5>${change.nom} ${change.prenom}</h5>
+                    </div>
+                    `
+                    divchanger.appendChild(changi);
+                })
+            }
+
+            function auterrain() {
+                const players = JSON.parse(localStorage.getItem("players")) || [];
+                players.forEach(joueur => {
+                    const selectedFormation = joueur.formation;
+                    const selectedPosition = joueur.position.toLowerCase();
+                    const playerContainer = document.querySelector(`.${selectedPosition}`);
+
+                    if (playerContainer) {
+                        playerContainer.innerHTML = `<img src="${joueur.photo}" alt="${joueur.nom} ${joueur.prenom}">
+                    <span>${joueur.note}</span>
+                    <h5>${joueur.nom} ${joueur.prenom}</h5>
+                    <div class="modifier" style="width:10px;"><img src="img/icons8-ball-point-pen-50.png"></div>
+                    <div class="supprimer" style="width:10px;"><img src="img/icons8-trash-can-50.png"></div>`;
+                        const positionData = tactique[selectedFormation].find(p => p.pos.toLowerCase() === selectedPosition);
+                        if (positionData) {
+                            playerContainer.style.position = "absolute";
+                            playerContainer.style.bottom = positionData.bottom;
+                            playerContainer.style.left = positionData.left || "unset";
+                            playerContainer.style.right = positionData.right || "unset";
+                        }
+                        playerContainer.querySelector(".modifier").addEventListener("click", (e) => {
+                            let koko = indice(joueur); // Obtenir l'indice du joueur dans la liste
+                            modifierJoueur(joueur);
+                            btn.addEventListener("click", (e) => {
+                                if (btn.textContent === "Modifier") {
+
+
+                                    let onepp = {
+                                        nom: nom.value,
+                                        prenom: prenom.value,
+                                        photo: photo.value,
+                                        note: note.value,
+                                        age: age.value,
+                                        nationalite: nationalite.value,
+                                        formation: formation.value,
+                                        position: position.value
+                                    };
+                                    players[koko] = onepp;
+
+                                    localStorage.setItem("players", JSON.stringify(players));
+                                    auterrain();
+                                    changement();
+
+                                }
+                            });
+                        });
+                        playerContainer.querySelector(".supprimer").addEventListener("click", () => {
+                            supprimerJoueur(joueur, selectedPosition);
+                            auterrain();
+
+
+                        });
+                    }
+                });
+            }
+
+
+            populatePositions(formation.value);
+            updatePositions(formation.value);
+            auterrain();
+            changement();
+
+            formation.addEventListener("change", () => {
+                populatePositions(formation.value);
+                updatePositions(formation.value);
+                auterrain();
+                changement();
+            });
+            btn.addEventListener("click", (e) => {
+                if (btn.textContent === "Ajouter") {
+                    let data = {
+                        nom: nom.value,
+                        prenom: prenom.value,
+                        photo: photo.value,
+                        note: note.value,
+                        age: age.value,
+                        nationalite: nationalite.value,
+                        formation: formation.value,
+                        position: position.value
+                    };
+                    let players = JSON.parse(localStorage.getItem("players")) || [];
+                    let positionExiste = players.some(player => player.position === data.position);
+
+                    if (positionExiste) {
+                        let changements = JSON.parse(localStorage.getItem("changement")) || [];
+                        changements.push(data);
+                        localStorage.setItem("changement", JSON.stringify(changements));
+                        alert("Cette position est déjà remplie !");
+                    } else {
+                        // Ajouter le nouveau joueur
+                        players.push(data);
+                        localStorage.setItem("players", JSON.stringify(players));
+                        auterrain();
+                        changement();
+                    }
+
+                }
+
+            })
+
+
+
+            //   btn.addEventListener("click", (e) => {
+
+            //         const selectedPosition = position.value.toLowerCase(); // Ex: "gk"
+            //         const playerContainer = document.querySelector(.${selectedPosition});
+            //         playerContainer.innerHTML = "";
+            //         playerContainer.innerHTML = 
+            //     <img src="${photo.value}" alt="${nom.value} ${prenom.value}">
+            //     <span>${note.value}</span>
+            //     <h5>${nom.value} ${prenom.value}</h5>
+            // ;
+
+            //     });
+
+        })
+    </script>
+
+</body>
+
+</html>
